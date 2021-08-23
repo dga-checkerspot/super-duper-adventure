@@ -1,9 +1,8 @@
 #!/usr/bin/env nextflow
 
 
-params.pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
+pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
 
-pBiodata = Channel.fromPath(params.pacB)
 
 process Hifiasm {
 
@@ -11,7 +10,7 @@ process Hifiasm {
 
 
   input:
-  path pb from pBiodata
+  path pb from pacB
   
   output:
   file '*.gfa' into asm_alleles
