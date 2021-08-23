@@ -7,7 +7,7 @@ pBiodata = Channel.fromPath(params.pacB)
 
 process Hifiasm {
 
-  memory '64G'
+  memory '128G'
 
 
   input:
