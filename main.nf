@@ -7,6 +7,8 @@ pacBio_data = Channel.fromPath(params.pacBio)
 
 process Hifiasm {
 
+  memory '64G'
+
 
   input:
   path pb from pacBio_data
