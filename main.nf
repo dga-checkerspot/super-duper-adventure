@@ -5,7 +5,7 @@ pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
 
 
 process Hifiasm {
-  cpu '8'
+  cpus '8'
   memory '64G'
 
 
