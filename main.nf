@@ -5,7 +5,7 @@ pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
 
 
 process Hifiasm {
-  cpus '8'
+  cpus '128'
   memory '96G'
 
 
@@ -16,7 +16,7 @@ process Hifiasm {
   file '*.gfa' into asm_alleles
   
   """
-  ./hifiasm -o CHK22 -t1 -f0 $pb
+  ./hifiasm -o CHK22 -t96 -f0 $pb
   """
 
 }
