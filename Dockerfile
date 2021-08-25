@@ -19,4 +19,6 @@ RUN conda config --add channels conda-forge
 
 RUN conda install -c conda-forge -y awscli
 
+RUN conda install -c bioconda seqtk
+
 RUN conda install -c bioconda hifiasm
