@@ -26,7 +26,7 @@ process seqtk {
 
 
 process Hifiasm {
-  memory '96G'
+  memory '48G'
 
 
   input:
@@ -36,7 +36,7 @@ process Hifiasm {
   file '*.gfa' into asm_alleles
   
   """
-  hifiasm -o CHK22 -t32 $pb
+  hifiasm -o CHK22 -t8 $pb
   """
 
 }
