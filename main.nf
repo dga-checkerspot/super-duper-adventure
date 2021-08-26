@@ -36,7 +36,7 @@ process Hifiasm {
   file '*.gfa' into asm_alleles
   
   """
-  hifiasm -o CHK22 -t1 $pb
+  hifiasm -o CHK22 -t32 $pb
   """
 
 }
