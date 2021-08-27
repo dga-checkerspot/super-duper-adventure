@@ -14,7 +14,7 @@ process seqtk {
   file 'pacb.fq.gz' into seqtk
   
   """
-  seqtk sample -s100 $pb 0.1 > pacb.fq 
+  seqtk sample -s100 $pb 0.5 > pacb.fq 
   gzip pacb.fq
   
   """
@@ -26,7 +26,7 @@ process seqtk {
 
 
 process Hifiasm {
-  memory '48G'
+  memory '256G'
 
 
   input:
@@ -36,7 +36,7 @@ process Hifiasm {
   file '*.gfa' into asm_alleles
   
   """
-  hifiasm -o CHK22 -t8 $pb
+  hifiasm -o CHK22 -t64 $pb
   """
 
 }
