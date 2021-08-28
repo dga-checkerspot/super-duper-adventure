@@ -30,7 +30,7 @@ process seqtk {
 seqtk='s3://pipe.scratch.3/work/ac/874c9065784992f1a14aec29c5a131/pacb.fq.gz'
 
 process Hifiasm {
-  memory '256G'
+  memory '512G'
 
 
   input:
@@ -40,7 +40,7 @@ process Hifiasm {
   file '*.gfa' into asm_alleles
   
   """
-  hifiasm -o CHK22 -t64 $pb
+  hifiasm -o CHK22 -t128 $pb
   """
 
 }
