@@ -78,7 +78,7 @@ process Raven {
   file 'raven.fasta' into raven_assembly
   
   """
-  raven raven --weaken -t 96 $pb > raven.fasta
+  raven --weaken -t 96 $pb > raven.fasta
   """
 
 }
