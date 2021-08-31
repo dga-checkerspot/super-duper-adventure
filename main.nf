@@ -25,6 +25,20 @@ process seqtk {
   """
   
  }
+ 
+ 
+ process seqkit {
+  memory '48G'
+  
+  input:
+  file pb from pacb_data
+  
+  output:
+  file 'filt.fq' into seqkit
+  
+  """
+  seqkit seq $pb -m 15000 > filt.fq
+  """
 
 
 */
