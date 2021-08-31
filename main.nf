@@ -107,7 +107,7 @@ process Flye {
   path pb from pacB_data4
   
   output:
-  file './pacb-flye/*.fasta' into raven_assembly
+  file './pacb-flye/*.fasta' into flye_assembly
   
   """
   flye --pacbio-hifi $pb --out-dir pacb-flye --threads 96  --keep-haplotypes
