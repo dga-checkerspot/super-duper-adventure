@@ -1,8 +1,11 @@
 #!/usr/bin/env nextflow
 
 
-pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
+params.pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
 
+pacb_data = Channel.fromPath(params.pacB)
+
+pacb_data.into{pacB_data1; pacB_data2; pacB_data3}
 
 
 /*
@@ -26,15 +29,16 @@ process seqtk {
 
 */
 
+//Also worth possibly adding a scikit length tools here (the L50 is ~13K)
 
-//seqtk='s3://pipe.scratch.3/work/ac/874c9065784992f1a14aec29c5a131/pacb.fq.gz'
 
+/*
 process Hifiasm {
-  memory '1952G'
+  memory '256G'
 
 
   input:
-  path pb from pacB
+  path pb from pacB_data1
   
   output:
   file '*.gfa' into asm_alleles
@@ -44,3 +48,62 @@ process Hifiasm {
   """
 
 }
+
+*/
+
+
+process Raven {
+  memory '256G'
+
+
+  input:
+  path pb from pacB_data2
+  
+  output:
+  file 'raven.fasta' into raven_assembly
+  
+  """
+  raven raven --weaken -t 96 $pb > raven.fasta
+  """
+
+}
+
+
+process Canu {
+  memory '256G'
+
+
+  input:
+  path pb from pacB_data3
+  
+  output:
+  file './sub_canu/asm.contigs.fasta' into canu_assembly
+  
+  """
+  canu -p asm -d sub_canu genomesize=19m -pacbio-hifi $pb 
+  """
+
+}
+
+
+process Flye {
+  memory '256G'
+
+
+  input:
+  path pb from pacB_data4
+  
+  output:
+  file './pacb-flye/*.fasta' into raven_assembly
+  
+  """
+  flye --pacbio-hifi $pb --out-dir pacb-flye --threads 96  --keep-haplotypes
+  """
+
+}
+
+
+
+
+
+
