@@ -1,8 +1,8 @@
 #!/usr/bin/env nextflow
 
 
-//params.pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
-params.pacB='s3://pipe.scratch.3/work/ac/874c9065784992f1a14aec29c5a131/pacb.fq.gz'
+params.pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq.gz'
+//params.pacB='s3://pipe.scratch.3/work/ac/874c9065784992f1a14aec29c5a131/pacb.fq.gz'
 
 
 pacb_data = Channel.fromPath(params.pacB)
