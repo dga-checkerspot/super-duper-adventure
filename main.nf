@@ -43,7 +43,6 @@ process seqtk {
 
 */
 
-//Also worth possibly adding a scikit length tools here (the L50 is ~13K)
 
 
 /*
