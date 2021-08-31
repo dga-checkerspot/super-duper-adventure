@@ -5,7 +5,7 @@ params.pacB='s3://wgs.algae.hifi/30-536540905/rawdata/fastX/CHK22.subreads.fastq
 
 pacb_data = Channel.fromPath(params.pacB)
 
-pacb_data.into{pacB_data1; pacB_data2; pacB_data3}
+pacb_data.into{pacB_data1; pacB_data2; pacB_data3; pacB_data4}
 
 
 /*
