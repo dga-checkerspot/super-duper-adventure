@@ -21,4 +21,12 @@ RUN conda install -c conda-forge -y awscli
 
 RUN conda install -c bioconda seqtk
 
+RUN conda install -c bioconda seqkit
+
 RUN conda install -c bioconda hifiasm
+
+RUN conda install -c bioconda raven-assembler
+
+RUN conda install -c bioconda canu
+
+RUN conda install -c bioconda flye
