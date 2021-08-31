@@ -83,7 +83,7 @@ process Raven {
 
 }
 
-
+/*
 process Canu {
   memory '256G'
 
@@ -100,6 +100,7 @@ process Canu {
 
 }
 
+*/
 
 process Flye {
   memory '256G'
